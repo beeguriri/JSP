@@ -1,5 +1,8 @@
 # JSP
 
+## 00 Database_Java_Source
++ MySQL 접속을 위한 JDBC 드라이버 로드
+
 ## 01 DirectiveScript (JSP 기본)
 + `<%@ %>` : 지시어
 + `<%! %>` : 선언부(변수, 메서드)
@@ -22,6 +25,14 @@
     getAttribute(String name)
     removeAttribute(String name)
     ```
+    
+## 04 Cookie (쿠키)
+  + 클라이언트 -> 서버 요청(처음방문)
+  + 서버 -> 클라이언트 응답 (쿠키전송)
+  + 클라이언트는 쿠키 저장
+  + 클라이언트 -> 서버 요청 (재방문, 쿠키를 함께 전송)
+  + 서버가 쿠키를 읽어 작업수행
+
 ## JSPMission
   + 0222 : 구구단 출력
     + Gugudan1 : dan수 입력받아서 1단 출력
