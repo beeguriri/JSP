@@ -1,7 +1,8 @@
 # JSP
 
 ## 00 Database_Java_Source
-+ MySQL 접속을 위한 JDBC 드라이버 로드
++ Lec : MySQL 접속을 위한 JDBC 드라이버 로드
++ Mission : 부모클래스 이용하여 MySQL, H2 드라이버 로드하기
 
 ## 01 DirectiveScript (JSP 기본)
 + `<%@ %>` : 지시어
