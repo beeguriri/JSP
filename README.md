@@ -33,6 +33,35 @@
   + 클라이언트는 쿠키 저장
   + 클라이언트 -> 서버 요청 (재방문, 쿠키를 함께 전송)
   + 서버가 쿠키를 읽어 작업수행
+  
+## 05 JDBC (데이터베이스 연결)
+```java
+// JDBC 드라이버 로드
+Class.forName("com.mysql.cj.jdbc.Driver") 
+
+//연결객체 생성
+Connection con = DriverManager.getConnection("url", "id", "pw");  
+
+//질의객체 생성(변수X)
+Statement st = con.createStatement();  
+ResultSet rs = st.executeQuery("SQL쿼리문");
+
+//질의객체 생성(변수O)
+PreparedStatement st = con.prepareStatement("where code=?")); 
+st.setString("?위치", "찾고자 하는 값");  //st.setInt, st.setDate...
+ResultSet rs = st.executeQuery();
+
+//질의결과 parsing
+while(rs.next()) {		
+  rs.getString(i)
+}
+
+//생성된 객체 연결을 모두 해제
+rs.close();
+st.close();
+con.close();
+
+```
 
 ## JSPMission
   + 0222 : 구구단 출력
