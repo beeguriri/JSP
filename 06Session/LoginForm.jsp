@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +33,8 @@
 		아이디 : <input type="text" name="user_id" /><br /><br />
 		패스워드 : <input type="password" name ="user_pw" /><br /><br />
 		<input type="submit" value="로그인하기" />
+		<button type="button" onclick="location.href='../08Board/RegistForm.jsp';">사용자등록</button>
+		
 	</form>
 	<%
 		} else {	//로그인 된 상태
