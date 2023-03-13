@@ -9,6 +9,7 @@ public class BoardDTO {
 	private java.sql.Date postdate;
 	private String visitcount;
 	private String name;
+	
 	public String getNum() {
 		return num;
 	}

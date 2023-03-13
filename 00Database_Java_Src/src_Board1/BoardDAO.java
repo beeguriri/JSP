@@ -23,7 +23,7 @@ public class BoardDAO extends JDBConnect {
 		if(map.get("searchWord")!=null) {
 			
 			query += " WHERE " + map.get("searchField") + " "
-					+ " LIKE '%" + map.get("serchWord") + "%'";
+					+ " LIKE '%" + map.get("searchWord") + "%'";
 		}
 		
 		try {
@@ -76,6 +76,53 @@ public class BoardDAO extends JDBConnect {
 			System.out.println("게시물 조회 중 예외 발생");
 			e.printStackTrace();
 		}		
+		return bbs;
+	}
+	
+	//검색 조건에 맞는 게시물 목록 반환(페이징)
+	public List<BoardDTO> selectListPage(Map<String, Object> map) {
+		
+		List<BoardDTO> bbs = new Vector<BoardDTO>();
+		
+		//쿼리문 템플릿
+		String query = "SELECT * FROM board ";
+		
+		if(map.get("searchWord")!=null) {
+			query += " WHERE " + map.get("searchField") + " "
+					+ " LIKE '%" + map.get("searchWord") + "%' ";
+		}
+		
+		query += " ORDER BY num DESC LIMIT ?,?"; //from to
+		
+		try {
+			
+			//쿼리문 완성
+			psmt = con.prepareStatement(query);
+			//psmt.setString(1, map.get("start").toString());
+			//psmt.setString(2, map.get("end").toString());
+			psmt.setInt(1, (int)map.get("start")-1);	//시작인덱스 
+			psmt.setInt(2, (int)map.get("pageSize"));	//갯수 (List.jsp에 저장된 정보 가져오는거)
+			
+			//쿼리문 실행
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				BoardDTO dto = new BoardDTO();
+				
+				dto.setNum(rs.getString("num"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setPostdate(rs.getDate("postdate"));
+				dto.setId(rs.getString("id"));
+				dto.setVisitcount(rs.getString("visitcount"));
+				
+				bbs.add(dto);	//결과 목록에 저장
+			}
+		} catch(Exception e) {
+			System.out.println("게시물 조회 중 예외 발생");
+			e.printStackTrace();
+		}
+							
 		return bbs;
 	}
 	
