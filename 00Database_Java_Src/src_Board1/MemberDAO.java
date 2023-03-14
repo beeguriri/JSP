@@ -1,7 +1,12 @@
 package membership;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
+
 import javax.servlet.ServletContext;
 import common.JDBConnect;
+import model1.board.BoardDTO;
 
 public class MemberDAO extends JDBConnect{
 	
@@ -41,7 +46,7 @@ public class MemberDAO extends JDBConnect{
 		
 	}
 
-	//회원정보 추가
+		//회원정보 추가
 		public int regUser(MemberDTO dto) {
 			int result = 0;
 			
@@ -64,6 +69,38 @@ public class MemberDAO extends JDBConnect{
 			}
 			
 			return result;
+		}
+		
+		//회원정보 불러오기
+		public List<MemberDTO> disMem() {
+			
+			List<MemberDTO> mem = new Vector<MemberDTO> ();
+			
+			//Ch.10 EL 실습용 코드
+			String query = "SELECT * FROM member ";
+			
+			try {
+				stmt = con.createStatement();
+				rs = stmt.executeQuery(query);
+				
+				while (rs.next()) {
+					
+					MemberDTO dto = new MemberDTO();
+					
+					dto.setId(rs.getString("id"));
+					dto.setPass(rs.getString("pass"));
+					dto.setName(rs.getString(3));
+					dto.setRegidate(rs.getString(4));
+					
+					mem.add(dto);	//결과 목록에 저장
+				}
+				
+			} catch(Exception e) {
+				
+				System.out.println("게시물 조회 중 예외 발생");
+				e.printStackTrace();
+			}		
+			return mem;
 		}
 
 

@@ -46,12 +46,19 @@ public class BoardDAO extends JDBConnect {
 		
 		List<BoardDTO> bbs = new Vector<BoardDTO> ();
 		
-		String query = "SELECT * FROM board ";
-		if (map.get("searchWord")!=null) {
-			query += " WHERE " + map.get("searchField") + " "
-					+ " LIKE '%" + map.get("searchWord") + "%' ";
-			query += " ORDER BY num DESC";
+		//Ch.10 EL 실습용 코드
+		String query = "";
+		if(map==null) {
+			query = "SELECT * FROM board ";
 		}
+		
+		
+//		String query = "SELECT * FROM board ";
+//		if (map.get("searchWord")!=null) {
+//			query += " WHERE " + map.get("searchField") + " "
+//					+ " LIKE '%" + map.get("searchWord") + "%' ";
+//			query += " ORDER BY num DESC";
+//		}
 		
 		try {
 			stmt = con.createStatement();
