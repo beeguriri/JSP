@@ -14,6 +14,7 @@
 	try{
 		
 		//1. MultipartRequest 객체 생성
+		//파일 업로드, 다운로드 하기 위한 MultipartRequest 클래스 
 		MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxPostSize, encoding);
 		
 		//2. 새로운 파일명 생성
@@ -54,6 +55,8 @@
 		dao.close();
 		
 		//7. 파일 목록 JSP로 리다이렉션
+		//클라이언트로 돌아갔다가 클라이언트에서 다시 요청 -> 리퀘스트를 공유하지 않음
+		//포워드는 서버 안에서 공유하므로 리퀘스트 공유
 		response.sendRedirect("FileList.jsp");
 		
 		
