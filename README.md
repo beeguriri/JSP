@@ -62,6 +62,26 @@ st.close();
 con.close();
 
 ```
+## 06 Session (로그인페이지 만들기)
+
+## 07 ActionTag (액션태그)
+ +	`<jsp:useBean id="person" class="common.Person" scope="request" />`
+
+## 08 Board (게시판만들기)
+ + 로그인정보 확인 되면 게시판 읽기, 쓰기, 수정, 삭제
+ + 추가mission : 신규사용자 등록하기
+ 
+## 09 PagingBoard (게시판만들기-페이징)
+  + 한 페이지에 보여지고싶은 목록수만큼 출력, 페이징블락 생성
+  
+## 10 EL
+  + 코드영역에 값 설정 후 EL태그로 값 사용
+```java
+<%
+	request.setAttribute("personObj", new Person("홍길동", 33));
+%>
+	<li>Person 객체 => 이름 : ${ personObj.name }, 나이 : ${ personObj.age }</li>
+```
 
 ## JSPMission
   + 0222 : 구구단 출력
