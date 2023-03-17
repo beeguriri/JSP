@@ -24,7 +24,7 @@ public class JDBConnect {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			// DB연결
-			String url = "jdbc:mysql://localhost:3306/world";
+			String url = "jdbc:mysql://localhost:3306/musthave";
 			String id = "musthave";
 			String pw = "tiger";
 			con = DriverManager.getConnection(url, id, pw);
