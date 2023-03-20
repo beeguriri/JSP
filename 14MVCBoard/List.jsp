@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>파일 첨부형 게시판</title>
 <style>a{text-decoration:none;}</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
 	<h2>파일 첨부형 게시판 - 목록보기(List)</h2>
@@ -28,7 +29,7 @@
 	</form>
 	
 	<!-- 목록 테이블 -->
-	<table border="1">
+	<table border="1" class="table table-striped table-hover">
 		<tr>
 			<th width="10%">번호</th>
 			<th width="*">제목</th>
