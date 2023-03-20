@@ -1,4 +1,4 @@
-# JSP
+# JSP & Servlet
 
 ## 00 Database_Java_Source
 + Lec : MySQL 접속을 위한 JDBC 드라이버 로드
